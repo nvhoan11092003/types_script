@@ -1,4 +1,4 @@
-e
+
 module.exports = {
     plugins: {
       tailwindcss: {},
