@@ -1,23 +1,31 @@
+import { Link } from "react-router-dom"
+import { IProduct } from "../../models"
 
-const Card = () => {
+type props = {
+    data: IProduct
+}
+
+const Card = ({ data }: props) => {
+
+    const link = "product/" + data.id
     return (
-        <a href="detail.html?id=${book.id}">
+        <Link to={link}>
             <div className="flex flex-col sm:block items-center">
-                <img className="max-h-[200px]" src="./sp1.png" alt="" />
-                <p className="mt-2">iPhone 11 64GB I Chính hãng VN/A</p>
+                <img className="max-h-[200px]" src={data.images[0].base_url} alt="" />
+                <p className="mt-2 ">{data.name}</p>
                 <div className="my-2 flex gap-x-4">
                     <div className="flex gap-x-3">
-                        <button className="flex items-center active:text-red-300 hover:text-red-500">
-                            10.790.000 ₫
-                            <p className="text-yellow-500">
-                                18.000.000 ₫
+                        <button className="flex items-center text-gray-400 ">
+                            {data.price} ₫
+                            <p className="text-red-500 ml-4">
+                                {data.original_price} ₫
                             </p></button>
-                        <p></p>
                     </div>
                 </div>
+                <p className="flex gap-1  items-center"><img src="star.png" alt="" /><img src="star.png" alt="" /><img src="star.png" alt="" /><img src="star.png" alt="" /><img src="star.png" alt="" />lượt đánh giá {70 + data.id}</p>
                 <p className="text-red-500">  </p>
             </div>
-        </a>
+        </Link>
     )
 }
 

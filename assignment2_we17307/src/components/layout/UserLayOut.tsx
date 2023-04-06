@@ -3,7 +3,7 @@ import Header from "./header";
 import Footer from "./Footer";
 const UserLayOut = () => {
     return (
-        <div className="container mx-auto">
+        <div className="">
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
